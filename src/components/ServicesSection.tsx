@@ -78,6 +78,13 @@ const ServicesSection: React.FC = () => {
             </Card>
           ))}
         </div>
+        
+        <div className="text-center mt-12">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-lg">
+            <Icon name="Phone" size={20} className="mr-2" />
+            Заказать консультацию
+          </Button>
+        </div>
       </div>
     </section>
   );

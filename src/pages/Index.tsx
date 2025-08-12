@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import CalculatorSection from '@/components/CalculatorSection';
 import ShopRentalSection from '@/components/ShopRentalSection';
+import ReviewsSection from '@/components/ReviewsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -25,6 +26,7 @@ const Index = () => {
         cartItems={cartItems} 
         setCartItems={setCartItems} 
       />
+      <ReviewsSection />
       <ContactSection />
       <Footer />
     </div>

@@ -16,13 +16,17 @@ const Header: React.FC<HeaderProps> = ({ cartItems, isLoggedIn, setIsLoggedIn })
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="text-2xl font-bold text-primary">ЧистоПро</div>
-            <nav className="hidden md:flex space-x-6">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">Услуги</a>
-              <a href="#shop" className="text-foreground hover:text-primary transition-colors">Магазин</a>
-              <a href="#rental" className="text-foreground hover:text-primary transition-colors">Аренда</a>
-              <a href="#calculator" className="text-foreground hover:text-primary transition-colors">Калькулятор</a>
-              <a href="#contacts" className="text-foreground hover:text-primary transition-colors">Контакты</a>
+            <nav className="hidden lg:flex space-x-6">
+              <a href="#services" className="text-foreground hover:text-primary transition-colors font-medium">Услуги</a>
+              <a href="#shop" className="text-foreground hover:text-primary transition-colors font-medium">Магазин</a>
+              <a href="#rental" className="text-foreground hover:text-primary transition-colors font-medium">Аренда</a>
+              <a href="#calculator" className="text-foreground hover:text-primary transition-colors font-medium">Калькулятор</a>
+              <a href="#reviews" className="text-foreground hover:text-primary transition-colors font-medium">Отзывы</a>
+              <a href="#contacts" className="text-foreground hover:text-primary transition-colors font-medium">Контакты</a>
             </nav>
+            <Button variant="ghost" className="lg:hidden">
+              <Icon name="Menu" size={24} />
+            </Button>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" className="relative">

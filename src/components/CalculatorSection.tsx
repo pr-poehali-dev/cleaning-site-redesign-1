@@ -12,7 +12,8 @@ const CalculatorSection: React.FC = () => {
     type: '',
     service: '',
     windows: '',
-    bathrooms: ''
+    bathrooms: '',
+    frequency: ''
   });
 
   const calculateCost = () => {
@@ -40,7 +41,7 @@ const CalculatorSection: React.FC = () => {
             </p>
           </div>
           <Card className="p-8">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
               <div>
                 <Label htmlFor="area">Площадь помещения (м²)</Label>
                 <Input
@@ -87,6 +88,30 @@ const CalculatorSection: React.FC = () => {
                   value={calculatorData.windows}
                   onChange={(e) => setCalculatorData({...calculatorData, windows: e.target.value})}
                 />
+              </div>
+              <div>
+                <Label htmlFor="bathrooms">Количество санузлов</Label>
+                <Input
+                  id="bathrooms"
+                  type="number"
+                  placeholder="2"
+                  value={calculatorData.bathrooms}
+                  onChange={(e) => setCalculatorData({...calculatorData, bathrooms: e.target.value})}
+                />
+              </div>
+              <div>
+                <Label htmlFor="frequency">Частота уборки</Label>
+                <Select onValueChange={(value) => setCalculatorData({...calculatorData, frequency: value})}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Выберите частоту" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="once">Разовая</SelectItem>
+                    <SelectItem value="weekly">Еженедельно</SelectItem>
+                    <SelectItem value="biweekly">Раз в 2 недели</SelectItem>
+                    <SelectItem value="monthly">Ежемесячно</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             {calculatorData.area && calculatorData.type && calculatorData.service && (
