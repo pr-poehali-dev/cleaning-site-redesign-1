@@ -1,52 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
-interface HeaderProps {
-  cartItems: number;
-  isLoggedIn: boolean;
-  setIsLoggedIn: (value: boolean) => void;
-}
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-const Header: React.FC<HeaderProps> = ({ cartItems, isLoggedIn, setIsLoggedIn }) => {
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <div className="text-2xl font-bold text-primary">ЧистоПро</div>
-            <nav className="hidden lg:flex space-x-6">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors font-medium">Услуги</a>
-              <a href="#shop" className="text-foreground hover:text-primary transition-colors font-medium">Магазин</a>
-              <a href="#rental" className="text-foreground hover:text-primary transition-colors font-medium">Аренда</a>
-              <a href="#calculator" className="text-foreground hover:text-primary transition-colors font-medium">Калькулятор</a>
-              <a href="#reviews" className="text-foreground hover:text-primary transition-colors font-medium">Отзывы</a>
-              <a href="#contacts" className="text-foreground hover:text-primary transition-colors font-medium">Контакты</a>
-            </nav>
-            <Button variant="ghost" className="lg:hidden">
-              <Icon name="Menu" size={24} />
-            </Button>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center space-x-2">
+            <Icon name="Sparkles" size={32} className="text-primary" />
+            <span className="text-2xl font-bold text-primary">ХочуКлининг</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors">
+              Главная
+            </Link>
+            <Link to="/services" className="text-foreground hover:text-primary transition-colors">
+              Услуги
+            </Link>
+            <Link to="/products" className="text-foreground hover:text-primary transition-colors">
+              Товары
+            </Link>
+            <Link to="/equipment" className="text-foreground hover:text-primary transition-colors">
+              Аренда техники
+            </Link>
+            <Link to="/contacts" className="text-foreground hover:text-primary transition-colors">
+              Контакты
+            </Link>
+          </nav>
+
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="text-sm text-foreground">
+              <div>г. Севастополь</div>
+              <div className="font-semibold">+7 978 290 92 92</div>
+            </div>
+            <Button>Заказать уборку</Button>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="relative">
-              <Icon name="ShoppingCart" size={20} />
-              {cartItems > 0 && (
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs">
-                  {cartItems}
-                </Badge>
-              )}
-            </Button>
-            {isLoggedIn ? (
-              <Button variant="ghost" onClick={() => setIsLoggedIn(false)}>
-                <Icon name="User" size={20} className="mr-2" />
-                Профиль
-              </Button>
-            ) : (
-              <Button onClick={() => setIsLoggedIn(true)}>Войти</Button>
-            )}
-          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t">
+            <nav className="flex flex-col space-y-4">
+              <Link to="/" className="text-foreground hover:text-primary transition-colors">
+                Главная
+              </Link>
+              <Link to="/services" className="text-foreground hover:text-primary transition-colors">
+                Услуги
+              </Link>
+              <Link to="/products" className="text-foreground hover:text-primary transition-colors">
+                Товары
+              </Link>
+              <Link to="/equipment" className="text-foreground hover:text-primary transition-colors">
+                Аренда техники
+              </Link>
+              <Link to="/contacts" className="text-foreground hover:text-primary transition-colors">
+                Контакты
+              </Link>
+              <div className="pt-4 border-t">
+                <div className="text-sm text-foreground mb-2">
+                  <div>г. Севастополь</div>
+                  <div className="font-semibold">+7 978 290 92 92</div>
+                </div>
+                <Button className="w-full">Заказать уборку</Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

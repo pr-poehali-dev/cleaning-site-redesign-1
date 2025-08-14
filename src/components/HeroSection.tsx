@@ -9,12 +9,12 @@ const HeroSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Профессиональный клининг 
-              <span className="text-primary block">для вашего дома</span>
+              ХочуКлининг - 
+              <span className="text-primary block">профессиональная уборка в Севастополе</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Качественная уборка от команды профессионалов. 
-              Используем современное оборудование и безопасные средства.
+              Качественные клининговые услуги, продажа товаров и аренда техники в Севастополе. 
+              Работаем с гарантией качества и фиксированными ценами.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg">
