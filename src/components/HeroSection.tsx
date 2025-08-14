@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-orange-50 to-orange-100">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
