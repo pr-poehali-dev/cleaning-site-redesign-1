@@ -47,7 +47,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-16 bg-gradient-to-br from-orange-50 to-orange-100">
+    <section id="reviews" className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Отзывы клиентов</h2>
